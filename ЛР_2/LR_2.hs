@@ -1,6 +1,6 @@
 {-# OPTIONS_GHC -Wno-incomplete-patterns #-}
 import Distribution.SPDX.LicenseId (LicenseId(MIT_0))
--- Лабораторна робота №1
+-- Лабораторна робота №2
 -- студентки групи КН-31 підгрупа 1
 -- Івахненко Ірини
 
