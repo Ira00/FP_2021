@@ -1,4 +1,4 @@
-import System.Environment ( getArgs )
+import System.IO
 -- Лабораторна робота №5
 -- студентки групи КН-31 підгрупа 1
 -- Івахненко Ірини
@@ -6,8 +6,8 @@ import System.Environment ( getArgs )
 -- Мета: Набути досвiду визначення та використання функцiй вищого порядку.
 
 -- Варіант 6
-
--- :load ЛР_5//LR_5.hs
+ -- cd ЛР_5
+-- :load LR_5.hs
 
 -- Завдання 1. Послiдовнiсть тотожних елементiв списку замiнити одним елементом, 
 -- напр.: [1,1,1,5,5,3, 1,1,222,222,222,222] ⇒ [1,5,3,1,222].
@@ -63,19 +63,26 @@ keyf1a = do
     numb1 <- getLine
     let x = read numb1 :: [Integer]
     z <- return (f1a x)
-    putStrLn "Rezult" 
+    putStrLn "Result" 
     print z
-
+-- > keyf1a
+-- Enter massive: 
+-- [1,1,1,5,5,3, 1,1,222,222,222,222]
+-- Result
+-- [1,5,3,1,222]
 keyf1b :: IO ()
 keyf1b = do
     putStrLn "Enter massive: "
     numb1 <- getLine
     let x = read numb1 :: [Integer]
     z <- return (f1b x)
-    putStrLn "Rezult" 
+    putStrLn "Result" 
     print z
-
-
+-- > keyf1b
+-- Enter massive: 
+-- [1,1,1,5,5,3, 1,1,222,222,222,222]
+-- Result
+-- [1,5,3,1,222]
 keyf2a :: IO ()
 keyf2a = do
     putStrLn "Enter first number: "
@@ -85,9 +92,15 @@ keyf2a = do
     numb2 <- getLine
     let y = read numb2 :: Integer
     z <- return (f2a x y)
-    putStrLn "Rezult" 
+    putStrLn "Result" 
     print z
-
+-- > keyf2a
+-- Enter first number: 
+-- 3
+-- Enter second number: 
+-- 19
+-- Result
+-- 57
 
 keyf2b :: IO ()
 keyf2b = do
@@ -98,5 +111,35 @@ keyf2b = do
     numb2 <- getLine
     let y = read numb2 :: Integer
     z <- return (f2b x y)
-    putStrLn "Rezult" 
+    putStrLn "Result" 
     print z
+-- > keyf2b
+-- Enter first number: 
+-- 3
+-- Enter second number: 
+-- 19
+-- Result
+-- 57
+f :: String -> [Int]
+f = read
+
+ff :: String -> Int
+ff = read
+
+fff :: Char -> Int
+fff = read . pure
+
+filef1 :: IO ()
+filef1 = do        
+        s <- readFile "f1_input.txt"
+        let r = f1a (f s)
+        writeFile "f1_output.txt" ("Result " ++ show r)
+-- > filef1
+filef2 :: IO ()
+filef2 = do        
+        s <- readFile "f2_input.txt"
+        let numb1 = fff (head s)
+        let numb2 = ff (tail s)
+        let r = f2a numb1 numb2
+        writeFile "f2_output.txt" ("Result " ++ show r)
+-- > filef2
