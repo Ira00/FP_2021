@@ -3,7 +3,9 @@
 {-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-
+-- Лабораторна робота №5_2
+-- студентки групи КН-31 підгрупа 1
+-- Івахненко Ірини
 import Yesod
 import Control.Applicative
 import Data.Text (Text)
@@ -18,6 +20,9 @@ instance Yesod MFormExample
 
 instance RenderMessage MFormExample FormMessage where
   renderMessage _ _ = defaultFormMessage
+  
+-- Завдання 1. Видалитиповториелементiвсписку(список-множина),
+-- напр.:[1,1,1,5,5,3, 1,1,222,222,222,222] ⇒ [1,5,3,222].
 
 f2a :: (Integral a) => a -> a -> a
 f2a x y =  (x `div` (gcd x y)) * y
@@ -96,7 +101,7 @@ getRootR = do
                 <h1> Лабораторна робота веб-застосунок засобами фреймворка Yesod   
                 <h2> Виконала студентка групи КН-31 Івахненко І. І.
             <div class="task">
-                <h2> Завдання на лабораторну роботу №1
+                <h2> Завдання на лабораторну роботу №2
                 <p> Знайти найменше спiльне кратне двох чисел.
 
             <p class="res">Result: #{show res}

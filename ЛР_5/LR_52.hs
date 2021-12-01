@@ -3,7 +3,9 @@
 {-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-
+-- Лабораторна робота №5_2
+-- студентки групи КН-31 підгрупа 1
+-- Івахненко Ірини
 import Yesod
 import Control.Applicative
 import Data.Text (Text, unpack)
@@ -19,6 +21,7 @@ instance Yesod MFormExample
 instance RenderMessage MFormExample FormMessage where
   renderMessage _ _ = defaultFormMessage
 
+-- Завдання 2. Знайти найменше спiльне кратне двох чисел.
 
 f1a :: Eq a => [a] -> [a]
 f1a (x:xs)
@@ -96,7 +99,7 @@ getRootR = do
                 <h1> Лабораторна робота веб-застосунок засобами фреймворка Yesod   
                 <h2> Виконала студентка групи КН-31 Івахненко І. І.
             <div class="task">
-                <h2> Завдання на лабораторну роботу №2
+                <h2> Завдання на лабораторну роботу №1
                 <p> Послiдовнiсть тотожних елементiв списку замiнити одним елементом, напр.: [1,1,1,5,5,3, 1,1,222,222,222,222] ⇒ [1,5,3,1,222].
 
             <p class="res">Result: #{show res}
